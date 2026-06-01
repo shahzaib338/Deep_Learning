@@ -57,18 +57,18 @@ for epoch in range(10):
 
     print(f"Epoch {epoch+1}, Loss {loss.item():.4f}")
 
-# Step 1 - convert test data to tensors
+
 X_test = torch.FloatTensor(X_test)
 y_test = torch.FloatTensor(y_test.values.copy())
 
-# Step 2 - switch to eval mode
+
 model.eval()
 
-# Step 3 - predict without learning
+
 with torch.no_grad():
-    predictions = model(X_test)          # get predictions
-    predictions = (predictions.squeeze() > 0.5).float()  # convert to 0 or 1
-    accuracy = (predictions == y_test).float().mean()    # compare with actual
+    predictions = model(X_test)          
+    predictions = (predictions.squeeze() > 0.5).float()  
+    accuracy = (predictions == y_test).float().mean()    
     print(f"Accuracy: {accuracy.item()*100:.2f}%")
 
 
