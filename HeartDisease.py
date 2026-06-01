@@ -29,9 +29,9 @@ dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
 
 print(X_train.shape)
 
-class CancerDetector(nn.Module):
+class HeartDisease(nn.Module):
     def __init__(self):
-        super(CancerDetector, self).__init__()
+        super(HeartDisease, self).__init__()
         self.model = nn.Sequential(
             nn.Linear(13, 32),
             nn.ReLU(),
@@ -43,7 +43,7 @@ class CancerDetector(nn.Module):
         return self.model(x)
 
 
-model = CancerDetector()
+model = HeartDisease()
 loss_fn = nn.BCELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.01)
 
